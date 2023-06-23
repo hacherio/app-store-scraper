@@ -104,7 +104,7 @@ The original library does not have other details besides review's data. So what 
      'isVppDeviceBasedLicensingEnabled': True,
      'currentVersionReleaseDate': '2023-06-21T15:39:05Z',
      'minimumOsVersion': '11.0',
-....
+     # and many more....
 }
 ```
 
