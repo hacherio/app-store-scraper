@@ -205,7 +205,7 @@ class Base:
             self._fetched_count = 0
 
     # NOTE: Implemented function that retrieves app details
-    def app_data(self):
+    def app_details(self):
         # Create the API URL
         api_url = f"https://itunes.apple.com/lookup?id={self.app_id}"
         # Send a GET request to API
