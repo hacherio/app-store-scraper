@@ -92,15 +92,28 @@ Other optional parameters are:
   - default is `5`
 
 
-## Fetching App datails
+## Fetching App Details
 
-The original library does not have the other details besides review's data. So what this forked repository will have is a method called 'app_details()' which essentially grabs the entire data about the app itself.
+The original library does not have other details besides review's data. So what this forked repository will have is a method called `app_details()` which essentially grabs the entire data about the app itself.
 
 ```pycon
 >>> minecraft.app_details()
 {.... 'kind': 'software', 'trackCensoredName': 'Minecraft', 'languageCodesISO2A': ['DA', 'NL', 'EN', 'FI', 'FR', 'DE', 'IT', 'JA', 'KO', 'NB', 'PL', 'PT', 'RU', 'ZH', 'ES', 'SV', 'ZH', 'TR'], 'fileSizeBytes': '1026025472', 'formattedPrice': '$6.99', 'contentAdvisoryRating': '9+', 'averageUserRatingForCurrentVersion': 4.49708, 'userRatingCountForCurrentVersion': 608097, 'averageUserRating': 4.49708, 'trackViewUrl': 'https://apps.apple.com/us/app/minecraft/id479516143?uo=4', 'trackContentRating': '9+', 'currency': 'USD', 'releaseNotes': 'Various bug fixes!', 'artistId': 479516146, 'artistName': 'Mojang', 'genres': ['Games', 'Simulation', 'Adventure'], 'price': 6.99, 'description': "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off dangerous mobs. \n\nCreate, explore, and survive along or play with friends on all different devices. Scale craggy mountains, unearth elaborate caves, and mine large ore veins. Discover lush cave and dripstone cave biomes. Light up your world with candles to show what a savvy spelunker and master mountaineer you are! \n\nEXPAND YOUR GAME:\nMarketplace - Discover the latest community creations in the marketplace! Get unique maps, skins, and texture packs from your favorite creators.\n\nSlash commands - Tweak how the game plays: you can give items away, summon mobs, change the time of day, and more. \n\nAdd-Ons - Customize your experience even further with free Add-Ons! If you're more tech-inclined, you can modify data-driven behaviors in the game to create new resource packs.\n\nMinecraft Realms auto-renewable subscription info:\n\nMinecraft now comes with the option to buy Minecraft Realms. Realms is a monthly subscription service that lets you create your own always-online Minecraft world.\nThere are currently two subscription options to choose from depending on how many people you want to invite to play in your realm simultaneously. A realm for you and 2 friends costs 3.99 USD/month (or local equivalent) and a realm for you and 10 friends cost 7.99 USD/month (or local equivalent).\nA 30-day trial of Minecraft Realms for you and 10 friends is available. Any unused portion of a free trial period will be forfeited when the user purchases a subscription.\n\nThe payment will be charged to your iTunes account at confirmation of purchase and the subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Your account will be charged for renewal within 24-hours prior to the end of the current period, at the subscription price option you have previously selected.\n\nYour subscription can be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase. There is also a button in-game that take you to these settings. If you cancel after your subscription has activated, you won't be refunded for the remaining active period of the subscription.\n\nHere are links to our privacy policy and terms of use:\n- Privacy policy: https://account.mojang.com/terms#privacy\n- Terms of use: https://account.mojang.com/terms", 'genreIds': ['6014', '7015', '7002'], 'primaryGenreName': 'Games', 'primaryGenreId': 6014, 'releaseDate': '2011-11-17T08:00:00Z', 'sellerName': 'Mojang AB', 'bundleId': 'com.mojang.minecraftpe', 'trackId': 479516143, 'trackName': 'Minecraft', 'isVppDeviceBasedLicensingEnabled': True, 'currentVersionReleaseDate': '2023-06-21T15:39:05Z', 'minimumOsVersion': '11.0', 'version': '1.20.1', 'wrapperType': 'software', 'userRatingCount': 608097}
 ```
 
+The app detail dictionary has the following important schema such as:
+```python
+{
+    "contentAdvisoryRating": str,
+    "description": str,
+    "Privacy policy": str,
+    "primaryGenreName": str,
+    "bundleId": str,
+    "version": str,
+    "userRatingCount": int,
+    # and many more....
+ }
+```
 
 ## Fetching Review
 
