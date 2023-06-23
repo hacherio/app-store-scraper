@@ -2,7 +2,7 @@ import setuptools
 
 about = dict()
 
-with open("app_store_scraper/__version__.py", "r") as f:
+with open("app_store_scraper/__version__.py", "r", encoding="utf-8") as f:
     exec(f.read(), about)
 
 with open("README.md", "r") as f:
