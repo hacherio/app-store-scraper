@@ -92,6 +92,36 @@ Other optional parameters are:
   - default is `5`
 
 
+## Fetching App Details
+
+The original library does not have other details besides review's data. So what this forked repository will have is a method called `app_details()` which essentially grabs the entire data about the app itself.
+
+```pycon
+>>> minecraft.app_details()
+{....
+     'trackId': 479516143, 
+     'trackName': 'Minecraft',
+     'isVppDeviceBasedLicensingEnabled': True,
+     'currentVersionReleaseDate': '2023-06-21T15:39:05Z',
+     'minimumOsVersion': '11.0',
+     # and many more....
+}
+```
+
+The app detail dictionary has the following important schema such as:
+```python
+{
+    "contentAdvisoryRating": str,
+    "description": str,
+    "Privacy policy": str,
+    "primaryGenreName": str,
+    "bundleId": str,
+    "version": str,
+    "userRatingCount": int,
+    # and many more....
+ }
+```
+
 ## Fetching Review
 
 The maximum number of reviews fetched per request is 20. To minimise the number of calls, the limit of 20 is hardcoded. This means the `review()` method will always grab more than the `how_many` argument supplied with an increment of 20.
