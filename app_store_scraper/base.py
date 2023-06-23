@@ -137,6 +137,8 @@ class Base:
         for data in response["data"]:
             review = data["attributes"]
             review["date"] = datetime.strptime(review["date"], "%Y-%m-%dT%H:%M:%SZ")
+            # NOTE: Add the 'id' from 'data' to review object
+            review["id"] = data["id"]  
             if after and review["date"] < after:
                 continue
             self.reviews.append(review)
@@ -201,3 +203,21 @@ class Base:
         finally:
             self._log_status()
             self._fetched_count = 0
+
+    # NOTE: Implemented function that retrieves app details
+    def app_data(self):
+        # Create the API URL
+        api_url = f"https://itunes.apple.com/lookup?id={self.app_id}"
+        # Send a GET request to API
+        res = requests.get(api_url)
+
+        # Check if the request was successful
+        if res.status_code == 200:
+            data = res.json()
+            # Webscrape all data related to the app
+            if data["resultCount"] > 0:
+                result = data["results"][0]
+                return result
+            
+        # Return None if cannot find bundleID
+        return None
