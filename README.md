@@ -159,6 +159,7 @@ Each review dictionary has the following schema:
     "rating": int,
     "review": str,
     "title": str,
-    "userName": str
+    "userName": str,
+    "id": int
  }
 ```
